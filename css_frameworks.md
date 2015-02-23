@@ -28,9 +28,9 @@ CSS frameworks:
 1. First, [download it here!](http://foundation.zurb.com/develop/download.html)
 2. Copy css/foundation.min.css and css/normalize.css into your project's stylesheets folder
 3. Link to the stylesheets from your layout.erb file **in this order:**
-* normalize.css
-* foundation.min.css
-* your own stylesheets!
+  * normalize.css
+  * foundation.min.css
+  * your own stylesheets!
 
 Bam! You're up and running!
 
@@ -78,11 +78,11 @@ I like to have my website content centered with some space on each side, and Fou
 
 ```html
 <div class="container">
-<div class="row">
-<div class="column">
-<%= yield %>
-</div>
-</div>
+  <div class="row">
+    <div class="column">
+      <%= yield %>
+    </div>
+  </div>
 </div>
 ```
 
@@ -92,7 +92,7 @@ Some things, like [alert boxes](http://foundation.zurb.com/docs/components/alert
 1. Create a folder in `public` called `js`
 2. Copy the entire contents of the Foundation `js` folder into your `js` folder
 3. In the `head` section of your `layout.erb` file, require `modernizer.js`: <br>
-`<script src="/js/vendor/modernizr.js"></script>'
+`<script src="/js/vendor/modernizr.js"></script>`
 4. Right before the closing `body` tag in your `layout.erb` file, require jquery and foundation's main js file:<br>
 `<script src="/js/vendor/jquery.js"></script>`<br>
 `<script src="/js/foundation.min.js"></script>`<br>
