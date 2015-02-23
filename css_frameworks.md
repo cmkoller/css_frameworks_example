@@ -110,7 +110,7 @@ Some things, like [alert boxes](http://foundation.zurb.com/docs/components/alert
 - [Cool "walkthroughs" of your page](http://foundation.zurb.com/docs/components/joyride.html)
 
 ### Using Flash with Sinatra
-Flash is an awesome gem that allows you to alert your users to important things! It also gives you a great chance to implement Foundation's beautiful [alerts](http://foundation.zurb.com/docs/components/alert_boxes.html). Here's how to set it up!
+[Sinatra Flash](https://github.com/SFEley/sinatra-flash) is an awesome gem that allows you to alert your users to important things! It also gives you a great chance to implement Foundation's beautiful [alerts](http://foundation.zurb.com/docs/components/alert_boxes.html). Here's how to set it up!
 
 1. Install the gem by typing `gem install sinatra-flash` in your terminal.
 2. Require the gem in the top of your server.rb file: `require 'sinatra/flash'`
