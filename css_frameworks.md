@@ -1,5 +1,3 @@
-[Example Code](https://github.com/cmkoller/css_frameworks_example)
-
 # CSS Frameworks
 
 The aim of frameworks in general is to provide a common structure so that developers don’t have to redo it from scratch.
