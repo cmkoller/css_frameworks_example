@@ -108,3 +108,33 @@ Some things, like [alert boxes](http://foundation.zurb.com/docs/components/alert
 - [Tabs](http://foundation.zurb.com/docs/components/tabs.html#tabs-deeplink-3)
 - [Pop-up lightboxes, aka "modals"](http://foundation.zurb.com/docs/components/reveal.html)
 - [Cool "walkthroughs" of your page](http://foundation.zurb.com/docs/components/joyride.html)
+
+### Using Flash with Sinatra
+Flash is an awesome gem that allows you to alert your users to important things! It also gives you a great chance to implement Foundation's beautiful [alerts](http://foundation.zurb.com/docs/components/alert_boxes.html). Here's how to set it up!
+
+1. Install the gem by typing `gem install sinatra-flash` in your terminal.
+2. Require the gem in the top of your server.rb file: `require 'sinatra/flash'`
+3. Enable sessions by adding this line right after your `require`s in server.rb: `enable :sessions`. (Sessions allow your browser a way to persist certain information.)
+4. Add the following code to your layout.erb file, right before your yield block:
+```
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+```
+
+Flash stores its messages as a hash. If you place a binding.pry in your code (such as in server.rb or layout.erb - either work!) you can call `flash` to examine how it works and how to interact with it. The above block of code goes through each `flash` key, and for each one, it sets up an alert box and prints the text associated with that key.
+
+To make a new flash message appear, you need to set a new key-value pairing in your server.rb file. For example, I may use the following code:
+```
+get '/' do
+  flash[:notice] = "Hooray, Flash is working!"
+  erb :index
+end
+```
+
+Try to use a descriptive word as the key! For example, if your flash is warning your user of a potential problem, you could use `flash[:warning]`. Check out the different types of words Foundation uses to differentiate its alert boxes for inspiration!
+
+(Hint: the block of ERB code I provided above takes the key from your flash message and sets that as an HTML class for the alert box. So if you want to get your message to look like the Foundation "info" alert box, use `:alert` as your key and the Foundation styles will show right up!)
